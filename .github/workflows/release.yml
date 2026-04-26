@@ -23,6 +23,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
+      - name: Setup Git Submodules
+        run: |
+          git submodule update --init --recursive
+
       - name: Install dependencies
         run: |
           sudo apt-get update
