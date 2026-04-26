@@ -68,7 +68,7 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           files: |
-            ./artifacts/mmproxy-linux-amd64/mmproxy
+            ./artifacts/mmproxy
           draft: false
           prerelease: false
           generate_release_notes: true
