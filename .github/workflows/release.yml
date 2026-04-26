@@ -24,10 +24,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
-
-      - name: Setup Git Submodules
-        run: |
-          git submodule update --init --recursive
+        with:
+          submodules: recursive
 
       - name: Install dependencies
         run: |
@@ -38,6 +36,11 @@ jobs:
         run: |
           make BUILD=release CC=clang
           strip mmproxy
+
+      - name: Verify binary exists
+        run: |
+          ls -la mmproxy
+          file mmproxy
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
